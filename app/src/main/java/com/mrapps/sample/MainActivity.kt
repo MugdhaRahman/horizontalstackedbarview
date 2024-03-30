@@ -37,17 +37,6 @@ class MainActivity : AppCompatActivity() {
         binding.chart.addData(6, aliens, getColor(R.color.maroon), "Aliens")
     }
 
-    private fun setupLegend() {
-        val legendItems = listOf(
-            LegendItem(ContextCompat.getColor(this, R.color.purple_200), "People"),
-            LegendItem(ContextCompat.getColor(this, R.color.purple_500), "Animal"),
-            LegendItem(ContextCompat.getColor(this, R.color.green), "Trees"),
-            LegendItem(ContextCompat.getColor(this, R.color.blue), "Ocean"),
-            LegendItem(ContextCompat.getColor(this, R.color.red), "Zombies"),
-            LegendItem(ContextCompat.getColor(this, R.color.maroon), "Aliens")
-        )
-        binding.chart.updateLegend(legendItems)
-    }
 
 
 }
