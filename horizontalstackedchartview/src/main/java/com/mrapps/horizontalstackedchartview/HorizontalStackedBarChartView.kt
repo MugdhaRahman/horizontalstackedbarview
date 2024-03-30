@@ -8,7 +8,6 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 
@@ -65,8 +64,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
         invalidate()
     }
-
-
 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -138,21 +135,8 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
         }
 
-
-
-//        if (legendOrientationHorizontal) {
-//            drawLegendHorizontal(canvas)
-//        } else {
-//            drawLegendVertical(canvas)
-//        }
-
-
         currentPercentage = toPercentage(currentWidth)
     }
-
-
-
-
 
     private fun toPercentage(rectWidth: Float): Float {
         return rectWidth * 100 / fullWidth
