@@ -1,5 +1,6 @@
 package com.mrapps.horizontalstackedchartview
 
+import LegendAdapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
@@ -10,6 +11,8 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class HorizontalStackedBarChartView @JvmOverloads constructor(
     context: Context,
@@ -141,4 +144,20 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     private fun toPercentage(rectWidth: Float): Float {
         return rectWidth * 100 / fullWidth
     }
+
+    fun setLegendData(legendData: List<Data>) {
+        // Create RecyclerView instance
+        val legendRecyclerView = findViewById<RecyclerView>(R.id.legendRecyclerView)
+
+        // Set layout manager (e.g., LinearLayoutManager)
+        legendRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        // Create adapter instance
+        val legendAdapter = LegendAdapter(legendData)
+
+        // Set adapter to RecyclerView
+        legendRecyclerView.adapter = legendAdapter
+    }
+
+
 }
