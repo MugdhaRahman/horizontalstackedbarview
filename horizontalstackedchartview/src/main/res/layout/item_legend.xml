@@ -1,23 +1,26 @@
 <!-- item_legend.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:orientation="horizontal">
 
-    <View
+    <androidx.cardview.widget.CardView
         android:id="@+id/colorView"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_gravity="center"
         android:layout_marginEnd="8dp"
-        android:background="@color/default_legend_icon_color" />
+        app:cardBackgroundColor="@color/default_legend_icon_color"
+        app:cardCornerRadius="3dp" />
 
     <TextView
         android:id="@+id/labelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:maxLines="1"
         android:text="Legend Item"
         android:textColor="@color/default_legend_text_color"
         android:textSize="15sp" />

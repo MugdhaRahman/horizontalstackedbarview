@@ -3,7 +3,7 @@ package com.mrapps.sample
 import LegendAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.mrapps.horizontalstackedchartview.Data
 import com.mrapps.sample.databinding.ActivityMainBinding
 
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val legendAdapter = LegendAdapter(legendData)
-        binding.legendRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.legendRecyclerView.layoutManager = GridLayoutManager(this, 4)
         binding.legendRecyclerView.adapter = legendAdapter
     }
 

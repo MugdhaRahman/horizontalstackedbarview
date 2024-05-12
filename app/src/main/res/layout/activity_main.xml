@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6F6"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -22,7 +23,6 @@
         android:id="@+id/legendRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:background="@android:color/white"/>
+        android:padding="15dp"/>
 
 </LinearLayout>
