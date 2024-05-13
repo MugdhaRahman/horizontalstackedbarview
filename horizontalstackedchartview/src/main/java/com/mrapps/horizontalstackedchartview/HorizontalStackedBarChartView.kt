@@ -3,6 +3,7 @@ package com.mrapps.horizontalstackedchartview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
@@ -37,6 +38,32 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
     private var fullWidth: Int = 0
     private var fullHeight: Int = 0
+
+    private var legendAdapter: LegendAdapter? = null
+
+    var legendTextColor: Int = Color.BLACK
+        set(value) {
+            field = value
+            legendAdapter?.setLegendTextColor(value)
+        }
+
+    var legendValueTextColor: Int = Color.BLACK
+        set(value) {
+            field = value
+            legendAdapter?.setLegendValueTextColor(value)
+        }
+
+    var legendTextSize: Float = 15f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendTextSize(value)
+        }
+
+    var legendValueTextSize: Float = 15f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendValueTextSize(value)
+        }
 
 
     init {
@@ -145,18 +172,44 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     }
 
     fun setLegend(recyclerView: RecyclerView) {
-        val legendData = mutableListOf<Data>()
-        // Populate legend data based on the data provided for the chart
-        for ((index, chartData) in dataList.withIndex()) {
-            legendData.add(Data(index, chartData.color, chartData.percentage.toDouble(), chartData.name))
+        if (dataList.isNotEmpty()) {
+            // Populate legend data
+            val legendData = mutableListOf<Data>()
+            for ((index, chartData) in dataList.withIndex()) {
+                legendData.add(
+                    Data(
+                        index,
+                        chartData.color,
+                        chartData.percentage.toDouble(),
+                        chartData.name,
+                        chartData.value.toInt()
+                    )
+                )
+            }
+
+            // Create or update legend adapter
+            if (legendAdapter == null) {
+                legendAdapter = LegendAdapter(legendData)
+            } else {
+                legendAdapter?.updateData(legendData)
+            }
+
+            // Apply legend customization
+            legendAdapter?.let {
+                it.setLegendTextColor(legendTextColor)
+                it.setLegendValueTextColor(legendValueTextColor)
+                it.setLegendTextSize(legendTextSize)
+                it.setLegendValueTextSize(legendValueTextSize)
+            }
+
+            // Set layout manager and adapter to RecyclerView
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.adapter = legendAdapter
+        } else {
+            // Clear adapter if dataList is empty
+            legendAdapter = null
+            recyclerView.adapter = null
         }
-
-        // Create legend adapter
-        val legendAdapter = LegendAdapter(legendData)
-
-        // Set layout manager and adapter to RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = legendAdapter
     }
 
 
