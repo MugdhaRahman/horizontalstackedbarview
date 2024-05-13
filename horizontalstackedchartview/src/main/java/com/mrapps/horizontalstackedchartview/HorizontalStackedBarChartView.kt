@@ -1,6 +1,5 @@
 package com.mrapps.horizontalstackedchartview
 
-import LegendAdapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas

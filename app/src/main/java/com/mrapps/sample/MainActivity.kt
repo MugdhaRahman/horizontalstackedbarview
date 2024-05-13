@@ -1,6 +1,6 @@
 package com.mrapps.sample
 
-import LegendAdapter
+import com.mrapps.horizontalstackedchartview.LegendAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager

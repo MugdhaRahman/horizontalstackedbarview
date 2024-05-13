@@ -1,33 +1,33 @@
+package com.mrapps.horizontalstackedchartview
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mrapps.horizontalstackedchartview.Data
-import com.mrapps.horizontalstackedchartview.R
+import com.mrapps.horizontalstackedchartview.databinding.ItemLegendBinding
 
 class LegendAdapter(private val legendData: List<Data>) :
     RecyclerView.Adapter<LegendAdapter.LegendViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_legend, parent, false)
-        return LegendViewHolder(view)
+        val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return LegendViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: LegendViewHolder, position: Int) {
         val data = legendData[position]
-        holder.colorIndicator.setBackgroundColor(data.color)
-        holder.legendLabel.text = data.name
-        holder.legendValue.text = data.value.toString()
+        holder.bind(data)
     }
 
     override fun getItemCount(): Int {
         return legendData.size
     }
 
-    class LegendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val colorIndicator: View = itemView.findViewById(R.id.colorView)
-        val legendLabel: TextView = itemView.findViewById(R.id.labelTextView)
-        val legendValue: TextView = itemView.findViewById(R.id.valueTextView)
+    inner class LegendViewHolder(private val binding: ItemLegendBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: Data) {
+            binding.colorView.setCardBackgroundColor(data.color)
+            binding.labelTextView.text = data.name
+            binding.valueTextView.text = data.value.toString()
+        }
     }
 }
