@@ -64,6 +64,23 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             field = value
             legendAdapter?.setLegendValueTextSize(value)
         }
+    var legendDotHeight: Float = 40f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendDotHeight(value)
+        }
+
+    var legendDotWidth: Float = 40f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendDotWidth(value)
+        }
+
+    var legendDotCornerRadius: Float = 10f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendDotCornerRadius(value)
+        }
 
 
     init {
@@ -173,7 +190,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
     fun setLegend(recyclerView: RecyclerView) {
         if (dataList.isNotEmpty()) {
-            // Populate legend data
             val legendData = mutableListOf<Data>()
             for ((index, chartData) in dataList.withIndex()) {
                 legendData.add(
@@ -187,31 +203,29 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                 )
             }
 
-            // Create or update legend adapter
             if (legendAdapter == null) {
                 legendAdapter = LegendAdapter(legendData)
             } else {
                 legendAdapter?.updateData(legendData)
             }
 
-            // Apply legend customization
             legendAdapter?.let {
                 it.setLegendTextColor(legendTextColor)
                 it.setLegendValueTextColor(legendValueTextColor)
                 it.setLegendTextSize(legendTextSize)
                 it.setLegendValueTextSize(legendValueTextSize)
+                it.setLegendDotHeight(legendDotHeight)
+                it.setLegendDotWidth(legendDotWidth)
+                it.setLegendDotCornerRadius(legendDotCornerRadius)
             }
 
-            // Set layout manager and adapter to RecyclerView
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = legendAdapter
         } else {
-            // Clear adapter if dataList is empty
             legendAdapter = null
             recyclerView.adapter = null
         }
     }
-
 
 
 }

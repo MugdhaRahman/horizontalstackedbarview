@@ -1,5 +1,6 @@
 package com.mrapps.horizontalstackedchartview
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -7,32 +8,51 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mrapps.horizontalstackedchartview.databinding.ItemLegendBinding
 
+@SuppressLint("NotifyDataSetChanged")
 class LegendAdapter(private val legendData: MutableList<Data>) :
     RecyclerView.Adapter<LegendAdapter.LegendViewHolder>() {
 
-    private var legendTextColor: Int = Color.BLACK
-    private var legendValueTextColor: Int = Color.BLACK
-    private var legendTextSize: Float = 14f
-    private var legendValueTextSize: Float = 14f
+    private var legendTextColor = R.color.default_legend_text_color
+    private var legendValueTextColor = R.color.default_legend_sub_text_color
+    private var legendTextSize = R.dimen.default_legend_text_size.toFloat()
+    private var legendValueTextSize = R.dimen.default_legend_value_text_size.toFloat()
+    private var legendDotHeight = 40f
+    private var legendDotWidth = 40f
+    private var legendDotCornerRadius = 10f
 
     fun setLegendTextColor(color: Int) {
         legendTextColor = color
-        notifyDataSetChanged() // Notify adapter to update views with new legend text color
+        notifyDataSetChanged()
     }
 
     fun setLegendValueTextColor(color: Int) {
         legendValueTextColor = color
-        notifyDataSetChanged() // Notify adapter to update views with new legend value text color
+        notifyDataSetChanged()
     }
 
     fun setLegendTextSize(size: Float) {
         legendTextSize = size
-        notifyDataSetChanged() // Notify adapter to update views with new legend text size
+        notifyDataSetChanged()
     }
 
     fun setLegendValueTextSize(size: Float) {
         legendValueTextSize = size
-        notifyDataSetChanged() // Notify adapter to update views with new legend value text size
+        notifyDataSetChanged()
+    }
+
+    fun setLegendDotHeight(size: Float) {
+        legendDotHeight = size
+        notifyDataSetChanged()
+    }
+
+    fun setLegendDotWidth(size: Float) {
+        legendDotWidth = size
+        notifyDataSetChanged()
+    }
+
+    fun setLegendDotCornerRadius(size: Float) {
+        legendDotCornerRadius = size
+        notifyDataSetChanged()
     }
 
 
@@ -44,16 +64,18 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     override fun onBindViewHolder(holder: LegendViewHolder, position: Int) {
         val data = legendData[position]
 
-        // Set legend text color and size
-        holder.binding.labelTextView.setTextColor(legendTextColor)
+        holder.binding.labelTextView.setTextColor(Color.BLACK)
         holder.binding.labelTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendTextSize)
 
-        // Set legend value text color and size
-        holder.binding.valueTextView.setTextColor(legendValueTextColor)
+        holder.binding.valueTextView.setTextColor(Color.GRAY)
         holder.binding.valueTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendValueTextSize)
 
-
         holder.binding.colorView.setCardBackgroundColor(data.color)
+
+        holder.binding.colorView.radius = legendDotCornerRadius
+        holder.binding.colorView.layoutParams.height = legendDotHeight.toInt()
+        holder.binding.colorView.layoutParams.width = legendDotWidth.toInt()
+
         holder.binding.labelTextView.text = data.name
         holder.binding.valueTextView.text = buildString {
             append(data.value.toString())
@@ -71,7 +93,6 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         legendData.addAll(newData)
         notifyDataSetChanged()
     }
-
 
 
     class LegendViewHolder(val binding: ItemLegendBinding) :

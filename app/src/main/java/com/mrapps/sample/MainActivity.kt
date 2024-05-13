@@ -41,6 +41,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupLegend() {
         binding.chart.setLegend(binding.legendRecyclerView)
         binding.legendRecyclerView.layoutManager = GridLayoutManager(this, 2)
+        binding.chart.legendTextColor = getColor(R.color.black)
+        binding.chart.legendValueTextColor = getColor(R.color.orange)
+        binding.chart.legendTextSize = 15.5f
+        binding.chart.legendValueTextSize = 12.5f
+        binding.chart.legendDotHeight = 40f
+        binding.chart.legendDotWidth = 40f
+        binding.chart.legendDotCornerRadius = 10f
     }
 
 
