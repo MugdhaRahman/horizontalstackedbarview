@@ -24,4 +24,16 @@
         android:text="Legend Item"
         android:textColor="@color/default_legend_text_color"
         android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/valueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:text="3.25"
+        android:textColor="@color/default_legend_sub_text_color"
+        android:textSize="13sp" />
+
 </LinearLayout>

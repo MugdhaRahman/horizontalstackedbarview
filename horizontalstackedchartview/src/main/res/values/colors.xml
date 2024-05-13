@@ -3,4 +3,5 @@
     <color name="default_bar_color">#F5F5F5</color>
     <color name="default_legend_text_color">#000000</color>
     <color name="default_legend_icon_color">#000000</color>
+    <color name="default_legend_sub_text_color">#424242</color>
 </resources>

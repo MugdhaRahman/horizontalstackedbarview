@@ -18,6 +18,7 @@ class LegendAdapter(private val legendData: List<Data>) :
         val data = legendData[position]
         holder.colorIndicator.setBackgroundColor(data.color)
         holder.legendLabel.text = data.name
+        holder.legendValue.text = data.value.toString()
     }
 
     override fun getItemCount(): Int {
@@ -27,5 +28,6 @@ class LegendAdapter(private val legendData: List<Data>) :
     class LegendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val colorIndicator: View = itemView.findViewById(R.id.colorView)
         val legendLabel: TextView = itemView.findViewById(R.id.labelTextView)
+        val legendValue: TextView = itemView.findViewById(R.id.valueTextView)
     }
 }
