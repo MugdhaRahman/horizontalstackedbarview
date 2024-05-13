@@ -1,5 +1,6 @@
 package com.mrapps.horizontalstackedchartview
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -24,10 +25,11 @@ class LegendAdapter(private val legendData: List<Data>) :
 
     inner class LegendViewHolder(private val binding: ItemLegendBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(data: Data) {
             binding.colorView.setCardBackgroundColor(data.color)
             binding.labelTextView.text = data.name
-            binding.valueTextView.text = data.value.toString()
+            binding.valueTextView.text = data.value.toString() + " %"
         }
     }
 }

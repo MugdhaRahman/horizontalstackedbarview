@@ -148,7 +148,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         val legendData = mutableListOf<Data>()
         // Populate legend data based on the data provided for the chart
         for ((index, chartData) in dataList.withIndex()) {
-            legendData.add(Data(index, chartData.color, chartData.value, chartData.name))
+            legendData.add(Data(index, chartData.color, chartData.percentage.toDouble(), chartData.name))
         }
 
         // Create legend adapter
