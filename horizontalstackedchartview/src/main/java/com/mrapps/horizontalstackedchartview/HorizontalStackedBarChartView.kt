@@ -144,19 +144,21 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         return rectWidth * 100 / fullWidth
     }
 
-    fun setLegendData(legendData: List<Data>) {
-        // Create RecyclerView instance
-        val legendRecyclerView = findViewById<RecyclerView>(R.id.legendRecyclerView)
+    fun setLegend(recyclerView: RecyclerView) {
+        val legendData = mutableListOf<Data>()
+        // Populate legend data based on the data provided for the chart
+        for ((index, chartData) in dataList.withIndex()) {
+            legendData.add(Data(index, chartData.color, chartData.value, chartData.name))
+        }
 
-        // Set layout manager (e.g., LinearLayoutManager)
-        legendRecyclerView.layoutManager = LinearLayoutManager(context)
-
-        // Create adapter instance
+        // Create legend adapter
         val legendAdapter = LegendAdapter(legendData)
 
-        // Set adapter to RecyclerView
-        legendRecyclerView.adapter = legendAdapter
+        // Set layout manager and adapter to RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = legendAdapter
     }
+
 
 
 }

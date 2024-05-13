@@ -1,10 +1,8 @@
 package com.mrapps.sample
 
-import com.mrapps.horizontalstackedchartview.LegendAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.mrapps.horizontalstackedchartview.Data
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,18 +37,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupLegend() {
-        val legendData = listOf(
-            Data(1, getColor(R.color.purple_200), people, "People"),
-            Data(2, getColor(R.color.purple_500), animal, "Animal"),
-            Data(3, getColor(R.color.green), trees, "Trees"),
-            Data(4, getColor(R.color.blue), ocean, "Ocean"),
-            Data(5, getColor(R.color.red), zombies, "Zombies"),
-            Data(6, getColor(R.color.maroon), aliens, "Aliens")
-        )
-
-        val legendAdapter = LegendAdapter(legendData)
+        binding.chart.setLegend(binding.legendRecyclerView)
         binding.legendRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        binding.legendRecyclerView.adapter = legendAdapter
     }
 
 
