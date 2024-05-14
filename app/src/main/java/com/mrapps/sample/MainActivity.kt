@@ -3,6 +3,7 @@ package com.mrapps.sample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrapps.horizontalstackedchartview.R.color
 import com.mrapps.sample.databinding.ActivityMainBinding
 
@@ -25,8 +26,10 @@ class MainActivity : AppCompatActivity() {
 
 
         setupBar()
+        setupBarSecond()
 
         setupLegend()
+        setupLegendSecond()
 
     }
 
@@ -46,11 +49,34 @@ class MainActivity : AppCompatActivity() {
         binding.chart.legendValueTextColor = getColor(color.default_legend_sub_text_color)
         binding.chart.legendTextSize = 15.5f
         binding.chart.legendValueTextSize = 12.5f
-        binding.chart.legendDotHeight = 40f
-        binding.chart.legendDotWidth = 40f
-        binding.chart.legendDotCornerRadius = 10f
+        binding.chart.legendDotHeight = 35f
+        binding.chart.legendDotWidth = 35f
+        binding.chart.legendDotCornerRadius = 8f
         binding.chart.legendValue = false
         binding.chart.legendValueShow = true
+    }
+
+    private fun setupBarSecond() {
+        binding.chart2.addData(1, people, getColor(R.color.purple_200), "People")
+        binding.chart2.addData(2, animal, getColor(R.color.purple_500), "Animal")
+        binding.chart2.addData(3, trees, getColor(R.color.green), "Trees")
+        binding.chart2.addData(4, ocean, getColor(R.color.blue), "Ocean")
+        binding.chart2.addData(5, zombies, getColor(R.color.red), "Zombies")
+        binding.chart2.addData(6, aliens, getColor(R.color.maroon), "Aliens")
+    }
+
+    private fun setupLegendSecond() {
+        binding.chart2.setLegend(binding.legendRecyclerView2)
+        binding.legendRecyclerView2.layoutManager = LinearLayoutManager(this)
+        binding.chart2.legendTextColor = getColor(color.default_legend_text_color)
+        binding.chart2.legendValueTextColor = getColor(color.default_legend_sub_text_color)
+        binding.chart2.legendTextSize = 15.5f
+        binding.chart2.legendValueTextSize = 12.5f
+        binding.chart2.legendDotHeight = 20f
+        binding.chart2.legendDotWidth = 40f
+        binding.chart2.legendDotCornerRadius = 10f
+        binding.chart2.legendValue = true
+        binding.chart2.legendValueShow = true
     }
 
 

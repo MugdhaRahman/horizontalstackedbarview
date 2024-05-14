@@ -104,7 +104,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         set?.let {
             val ta = context.obtainStyledAttributes(set, R.styleable.HorizontalStackedBarChartView)
             cornerRadius =
-                ta.getFloat(R.styleable.HorizontalStackedBarChartView_BarCornerRadius, cornerRadius)
+                ta.getFloat(R.styleable.HorizontalStackedBarChartView_barCornerRadius, cornerRadius)
             backgroundColor = ta.getColor(
                 R.styleable.HorizontalStackedBarChartView_barColor,
                 ContextCompat.getColor(context, R.color.default_bar_color)

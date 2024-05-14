@@ -3,21 +3,9 @@
 
     <declare-styleable name="HorizontalStackedBarChartView">
         <attr name="barColor" format="color" />
-        <attr name="BarCornerRadius" format="float" />
-    </declare-styleable>
-
-
-    <declare-styleable name="LegendView">
-        <attr name="legendTextColor" format="color" />
-        <attr name="legendTextSize" format="dimension" />
-        <attr name="legendIconSize" format="dimension" />
-        <attr name="legendTextPadding" format="dimension" />
-        <attr name="legendItemHeight" format="dimension" />
-        <attr name="legendItemWidth" format="dimension" />
-
-        <attr name="legendHorizontal" format="boolean" />
-        <attr name="legendSize" format="dimension" />
+        <attr name="barCornerRadius" format="float" />
 
     </declare-styleable>
+
 
 </resources>

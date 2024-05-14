@@ -12,17 +12,31 @@
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="top"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        app:BarCornerRadius="8"
         app:barColor="@color/gray"
-        app:legendHorizontal="true"
-        app:legendSize="15sp" />
+        app:barCornerRadius="8" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/legendRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"/>
+        android:padding="10dp" />
+
+
+    <com.mrapps.horizontalstackedchartview.HorizontalStackedBarChartView
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:layout_margin="10dp"
+        app:barColor="@color/gray"
+        app:barCornerRadius="8" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/legendRecyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
 
 </LinearLayout>
