@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         binding.chart.legendDotHeight = 40f
         binding.chart.legendDotWidth = 40f
         binding.chart.legendDotCornerRadius = 10f
+        binding.chart.legendValue = false
     }
 
 

@@ -19,6 +19,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendDotHeight = 40f
     private var legendDotWidth = 40f
     private var legendDotCornerRadius = 10f
+    private var legendValue = false
 
     fun setLegendTextColor(color: Int) {
         legendTextColor = color
@@ -55,6 +56,11 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
+    fun setLegendValue(value: Boolean) {
+        legendValue = value
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -77,10 +83,17 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         holder.binding.colorView.layoutParams.width = legendDotWidth.toInt()
 
         holder.binding.labelTextView.text = data.name
-        holder.binding.valueTextView.text = buildString {
-            append(data.value.toString())
-            append(" %")
+
+        if (legendValue) {
+            holder.binding.valueTextView.text = data.percentage.toString()
+        } else {
+            holder.binding.valueTextView.text = buildString {
+                append(data.value.toString())
+                append(" %")
+            }
         }
+
+
     }
 
     override fun getItemCount(): Int {

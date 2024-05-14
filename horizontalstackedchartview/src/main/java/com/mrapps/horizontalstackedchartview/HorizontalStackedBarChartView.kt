@@ -82,6 +82,12 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             legendAdapter?.setLegendDotCornerRadius(value)
         }
 
+    var legendValue: Boolean = false
+        set(value) {
+            field = value
+            legendAdapter?.setLegendValue(value)
+        }
+
 
     init {
         init(attrs)
@@ -217,6 +223,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                 it.setLegendDotHeight(legendDotHeight)
                 it.setLegendDotWidth(legendDotWidth)
                 it.setLegendDotCornerRadius(legendDotCornerRadius)
+                it.setLegendValue(legendValue)
             }
 
             recyclerView.layoutManager = LinearLayoutManager(context)
