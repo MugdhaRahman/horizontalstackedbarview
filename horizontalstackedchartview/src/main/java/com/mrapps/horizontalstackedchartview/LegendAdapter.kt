@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.mrapps.horizontalstackedchartview.databinding.ItemLegendBinding
 
@@ -20,6 +21,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendDotHeight = 40f
     private var legendDotWidth = 40f
     private var legendDotCornerRadius = 10f
+    private var LegendDotSpacing = 20f
     private var legendValue = false
     private var legendValueShow = true
 
@@ -68,6 +70,11 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
+    fun setLegendDotSpacing(value: Float) {
+        LegendDotSpacing = value
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -89,6 +96,10 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         holder.binding.colorView.radius = legendDotCornerRadius
         holder.binding.colorView.layoutParams.height = legendDotHeight.toInt()
         holder.binding.colorView.layoutParams.width = legendDotWidth.toInt()
+
+        val layoutParams = holder.binding.colorView.layoutParams as MarginLayoutParams
+        layoutParams.marginEnd = LegendDotSpacing.toInt()
+        holder.binding.colorView.layoutParams = layoutParams
 
         holder.binding.labelTextView.text = data.name
 
