@@ -3,6 +3,7 @@ package com.mrapps.sample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mrapps.horizontalstackedchartview.R.color
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -41,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupLegend() {
         binding.chart.setLegend(binding.legendRecyclerView)
         binding.legendRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        binding.chart.legendTextColor = getColor(R.color.green)
-        binding.chart.legendValueTextColor = getColor(R.color.orange)
+        binding.chart.legendTextColor = getColor(color.default_legend_text_color)
+        binding.chart.legendValueTextColor = getColor(color.default_legend_sub_text_color)
         binding.chart.legendTextSize = 15.5f
         binding.chart.legendValueTextSize = 12.5f
         binding.chart.legendDotHeight = 40f
