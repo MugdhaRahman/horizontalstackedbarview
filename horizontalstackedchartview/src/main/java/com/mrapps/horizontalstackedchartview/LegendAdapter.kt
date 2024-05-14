@@ -85,10 +85,10 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         holder.binding.labelTextView.text = data.name
 
         if (legendValue) {
-            holder.binding.valueTextView.text = data.percentage.toString()
+            holder.binding.valueTextView.text = data.value.toString()
         } else {
             holder.binding.valueTextView.text = buildString {
-                append(data.value.toString())
+                append(data.percentage.toString())
                 append(" %")
             }
         }

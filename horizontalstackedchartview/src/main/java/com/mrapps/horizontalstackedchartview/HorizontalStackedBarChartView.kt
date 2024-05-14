@@ -202,9 +202,9 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                     Data(
                         index,
                         chartData.color,
-                        chartData.percentage.toDouble(),
+                        chartData.value,
                         chartData.name,
-                        chartData.value.toInt()
+                        chartData.percentage
                     )
                 )
             }
