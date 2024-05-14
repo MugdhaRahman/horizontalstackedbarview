@@ -100,6 +100,12 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             legendAdapter?.setLegendDotSpacing(value)
         }
 
+    var legendValueSpacing: Float = 10f
+        set(value) {
+            field = value
+            legendAdapter?.setLegendValueSpacing(value)
+        }
+
 
 
 
@@ -141,8 +147,8 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
     fun addData(newDataId: Int, newValue: Double, newColorRes: Int, newDataName: String) {
         dataList.add(Data(newDataId, newColorRes, newValue, newDataName))
-        calculatePercentages() // Calculate percentages after adding data
-        show() // Automatically show the chart after adding data
+        calculatePercentages()
+        show()
     }
 
     private fun show() {
@@ -240,6 +246,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                 it.setLegendValue(legendValue)
                 it.setLegendValueShow(legendValueShow)
                 it.setLegendDotSpacing(legendDotSpacing)
+                it.setLegendValueSpacing(legendValueSpacing)
             }
 
             recyclerView.layoutManager = LinearLayoutManager(context)

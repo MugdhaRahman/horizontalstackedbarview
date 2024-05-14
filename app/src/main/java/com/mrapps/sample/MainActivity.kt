@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         binding.chart.legendDotWidth = 35f
         binding.chart.legendDotCornerRadius = 8f
         binding.chart.legendDotSpacing = 20.8995f
+        binding.chart.legendValueSpacing = 21.22550f
         binding.chart.legendValue = false
         binding.chart.legendValueShow = true
     }
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         binding.chart2.legendDotWidth = 40f
         binding.chart2.legendDotCornerRadius = 10f
         binding.chart2.legendDotSpacing = 29.1416f
+        binding.chart2.legendValueSpacing = 21.5864f
         binding.chart2.legendValue = true
         binding.chart2.legendValueShow = true
     }
