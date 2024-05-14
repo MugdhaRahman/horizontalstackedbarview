@@ -1,9 +1,10 @@
 package com.mrapps.horizontalstackedchartview
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mrapps.horizontalstackedchartview.databinding.ItemLegendBinding
@@ -20,6 +21,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendDotWidth = 40f
     private var legendDotCornerRadius = 10f
     private var legendValue = false
+    private var legendValueShow = true
 
     fun setLegendTextColor(color: Int) {
         legendTextColor = color
@@ -62,7 +64,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     }
 
     fun setLegendValueShow(value: Boolean) {
-        legendValue = value
+        legendValueShow = value
         notifyDataSetChanged()
     }
 
@@ -72,6 +74,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         return LegendViewHolder(binding)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: LegendViewHolder, position: Int) {
         val data = legendData[position]
 
@@ -96,6 +99,12 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
                 append(data.percentage.toString())
                 append(" %")
             }
+        }
+
+        if (legendValueShow) {
+            holder.binding.valueTextView.visibility = VISIBLE
+        } else {
+            holder.binding.valueTextView.visibility = GONE
         }
 
 
