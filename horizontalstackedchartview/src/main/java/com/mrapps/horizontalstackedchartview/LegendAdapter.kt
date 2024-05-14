@@ -61,6 +61,11 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
+    fun setLegendValueShow(value: Boolean) {
+        legendValue = value
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -70,10 +75,10 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     override fun onBindViewHolder(holder: LegendViewHolder, position: Int) {
         val data = legendData[position]
 
-        holder.binding.labelTextView.setTextColor(Color.BLACK)
+        holder.binding.labelTextView.setTextColor(legendTextColor)
         holder.binding.labelTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendTextSize)
 
-        holder.binding.valueTextView.setTextColor(Color.GRAY)
+        holder.binding.valueTextView.setTextColor(legendValueTextColor)
         holder.binding.valueTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendValueTextSize)
 
         holder.binding.colorView.setCardBackgroundColor(data.color)

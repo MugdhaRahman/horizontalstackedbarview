@@ -88,6 +88,12 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             legendAdapter?.setLegendValue(value)
         }
 
+    var legendValueShow: Boolean = false
+        set(value) {
+            field = value
+            legendAdapter?.setLegendValueShow(value)
+        }
+
 
     init {
         init(attrs)
