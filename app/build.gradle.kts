@@ -41,7 +41,7 @@ android {
 
 dependencies {
 
-    implementation((project(":horizontalstackedchartview")))
+    implementation((project(":horizontalstackedbarview")))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

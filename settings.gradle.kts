@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Horizontal Stacked Chart View"
 include(":app")
-include(":horizontalstackedchartview")
+include(":horizontalstackedbarview")

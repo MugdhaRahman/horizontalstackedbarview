@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mrapps.horizontalstackedchartview"
+    namespace = "com.mrapps.horizontalstackedbarview"
     compileSdk = 34
 
     defaultConfig {

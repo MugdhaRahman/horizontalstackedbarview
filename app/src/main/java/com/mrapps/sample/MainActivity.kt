@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrapps.horizontalstackedchartview.R.color
+import com.mrapps.horizontalstackedbarview.R.color
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
