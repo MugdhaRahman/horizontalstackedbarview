@@ -1,4 +1,4 @@
-package com.mrapps.horizontalstackedchartview
+package com.mrapps.horizontalstackedbarview
 
 import android.annotation.SuppressLint
 import android.util.TypedValue
@@ -8,7 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import androidx.recyclerview.widget.RecyclerView
-import com.mrapps.horizontalstackedchartview.databinding.ItemLegendBinding
+import com.mrapps.horizontalstackedbarview.databinding.ItemLegendBinding
 
 @SuppressLint("NotifyDataSetChanged")
 class LegendAdapter(private val legendData: MutableList<Data>) :

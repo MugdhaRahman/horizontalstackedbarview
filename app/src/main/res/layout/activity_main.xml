@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.mrapps.horizontalstackedchartview.HorizontalStackedBarChartView
+    <com.mrapps.horizontalstackedbarview.HorizontalStackedBarChartView
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -24,7 +24,7 @@
         android:padding="10dp" />
 
 
-    <com.mrapps.horizontalstackedchartview.HorizontalStackedBarChartView
+    <com.mrapps.horizontalstackedbarview.HorizontalStackedBarChartView
         android:id="@+id/chart2"
         android:layout_width="match_parent"
         android:layout_height="50dp"

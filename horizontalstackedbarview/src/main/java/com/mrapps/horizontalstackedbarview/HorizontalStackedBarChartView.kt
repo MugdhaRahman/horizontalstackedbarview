@@ -1,4 +1,4 @@
-package com.mrapps.horizontalstackedchartview
+package com.mrapps.horizontalstackedbarview
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,6 +13,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mrapps.horizontalstackedbarview.R
 
 class HorizontalStackedBarChartView @JvmOverloads constructor(
     context: Context,
@@ -105,8 +106,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             field = value
             legendAdapter?.setLegendValueSpacing(value)
         }
-
-
 
 
     init {
