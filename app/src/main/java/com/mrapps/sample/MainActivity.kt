@@ -1,9 +1,8 @@
 package com.mrapps.sample
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.mrapps.horizontalstackedbarview.Data
+import com.mrapps.horizontalstackedbarview.R.color
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     private val zombies = 30.00
     private val aliens = 40.00
 
-    private val dataList: MutableList<Data> = mutableListOf()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -28,8 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         setupBar()
         setupLegend()
-
-        Log.e("main", "onCreate: ${dataList.size}")
+        setupLegend2()
 
     }
 
@@ -41,27 +37,40 @@ class MainActivity : AppCompatActivity() {
         binding.chart.addData(5, zombies, getColor(R.color.red), "Zombies")
         binding.chart.addData(6, aliens, getColor(R.color.maroon), "Aliens")
 
-        Log.e("main", "setupBar: ${dataList.size}")
     }
 
     private fun setupLegend() {
         binding.chart.setLegendView(binding.legendView)
-//        binding.legendView.setLegendHorizontal = true
+        binding.legendView.setLegendHorizontal = true
         binding.legendView.setHorizontalSpanCount = 2
-//        binding.legendView.legendTextColor = getColor(color.default_legend_text_color)
-//        binding.legendView.legendValueTextColor = getColor(color.default_legend_sub_text_color)
-//        binding.legendView.legendTextSize = 15.5f
-//        binding.legendView.legendValueTextSize = 12.5f
-//        binding.legendView.legendDotHeight = 35f
-//        binding.legendView.legendDotWidth = 35f
-//        binding.legendView.legendDotCornerRadius = 8f
-//        binding.legendView.legendDotSpacing = 20.8995f
-//        binding.legendView.legendValueSpacing = 21.22550f
-//        binding.legendView.legendValue = false
-//        binding.legendView.legendValueShow = true
+        binding.legendView.legendTextColor = getColor(color.default_legend_text_color)
+        binding.legendView.legendValueTextColor = getColor(color.default_legend_sub_text_color)
+        binding.legendView.legendTextSize = 15.5f
+        binding.legendView.legendValueTextSize = 12.5f
+        binding.legendView.legendDotHeight = 35f
+        binding.legendView.legendDotWidth = 35f
+        binding.legendView.legendDotCornerRadius = 8f
+        binding.legendView.legendDotSpacing = 20.8995f
+        binding.legendView.legendValueSpacing = 21.22550f
+        binding.legendView.legendValue = false
+        binding.legendView.legendValueShow = true
 
-        Log.e("main", "setupLegend: ${dataList.size}")
+    }
 
+    private fun setupLegend2() {
+        binding.chart.setLegendView(binding.legendView2)
+        binding.legendView2.setLegendHorizontal = false
+        binding.legendView2.legendTextColor = getColor(color.default_legend_text_color)
+        binding.legendView2.legendValueTextColor = getColor(color.default_legend_sub_text_color)
+        binding.legendView2.legendTextSize = 15.5f
+        binding.legendView2.legendValueTextSize = 12.5f
+        binding.legendView2.legendDotHeight = 20f
+        binding.legendView2.legendDotWidth = 35f
+        binding.legendView2.legendDotCornerRadius = 8f
+        binding.legendView2.legendDotSpacing = 25.8995f
+        binding.legendView2.legendValueSpacing = 20.22550f
+        binding.legendView2.legendValue = false
+        binding.legendView2.legendValueShow = true
     }
 
 }
