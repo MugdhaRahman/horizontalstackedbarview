@@ -17,11 +17,17 @@
         app:barColor="@color/gray"
         app:barCornerRadius="8" />
 
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/legendRecyclerView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:padding="10dp" />-->
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Grid Legend View"
+        android:textColor="@color/default_legend_text_color"
+        android:textSize="15sp" />
 
     <com.mrapps.horizontalstackedbarview.LegendView
         android:id="@+id/legendView"
@@ -29,12 +35,22 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
 
+    <TextView
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="List Legend View"
+        android:textColor="@color/default_legend_text_color"
+        android:textSize="15sp" />
+
     <com.mrapps.horizontalstackedbarview.LegendView
         android:id="@+id/legendView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
-
 
 
 </LinearLayout>
