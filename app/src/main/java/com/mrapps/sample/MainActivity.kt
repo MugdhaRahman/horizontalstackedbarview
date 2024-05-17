@@ -1,10 +1,9 @@
 package com.mrapps.sample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrapps.horizontalstackedbarview.R.color
+import com.mrapps.horizontalstackedbarview.Data
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,16 +19,17 @@ class MainActivity : AppCompatActivity() {
     private val zombies = 30.00
     private val aliens = 40.00
 
+    private val dataList: MutableList<Data> = mutableListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
 
         setupBar()
-        setupBarSecond()
-
         setupLegend()
-        setupLegendSecond()
+
+        Log.e("main", "onCreate: ${dataList.size}")
 
     }
 
@@ -40,48 +40,28 @@ class MainActivity : AppCompatActivity() {
         binding.chart.addData(4, ocean, getColor(R.color.blue), "Ocean")
         binding.chart.addData(5, zombies, getColor(R.color.red), "Zombies")
         binding.chart.addData(6, aliens, getColor(R.color.maroon), "Aliens")
+
+        Log.e("main", "setupBar: ${dataList.size}")
     }
 
     private fun setupLegend() {
-        binding.chart.setLegend(binding.legendRecyclerView)
-        binding.legendRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        binding.chart.legendTextColor = getColor(color.default_legend_text_color)
-        binding.chart.legendValueTextColor = getColor(color.default_legend_sub_text_color)
-        binding.chart.legendTextSize = 15.5f
-        binding.chart.legendValueTextSize = 12.5f
-        binding.chart.legendDotHeight = 35f
-        binding.chart.legendDotWidth = 35f
-        binding.chart.legendDotCornerRadius = 8f
-        binding.chart.legendDotSpacing = 20.8995f
-        binding.chart.legendValueSpacing = 21.22550f
-        binding.chart.legendValue = false
-        binding.chart.legendValueShow = true
-    }
+        binding.chart.setLegendView(binding.legendView)
+//        binding.legendView.setLegendHorizontal = true
+        binding.legendView.setHorizontalSpanCount = 2
+//        binding.legendView.legendTextColor = getColor(color.default_legend_text_color)
+//        binding.legendView.legendValueTextColor = getColor(color.default_legend_sub_text_color)
+//        binding.legendView.legendTextSize = 15.5f
+//        binding.legendView.legendValueTextSize = 12.5f
+//        binding.legendView.legendDotHeight = 35f
+//        binding.legendView.legendDotWidth = 35f
+//        binding.legendView.legendDotCornerRadius = 8f
+//        binding.legendView.legendDotSpacing = 20.8995f
+//        binding.legendView.legendValueSpacing = 21.22550f
+//        binding.legendView.legendValue = false
+//        binding.legendView.legendValueShow = true
 
-    private fun setupBarSecond() {
-        binding.chart2.addData(1, people, getColor(R.color.purple_200), "People")
-        binding.chart2.addData(2, animal, getColor(R.color.purple_500), "Animal")
-        binding.chart2.addData(3, trees, getColor(R.color.green), "Trees")
-        binding.chart2.addData(4, ocean, getColor(R.color.blue), "Ocean")
-        binding.chart2.addData(5, zombies, getColor(R.color.red), "Zombies")
-        binding.chart2.addData(6, aliens, getColor(R.color.maroon), "Aliens")
-    }
+        Log.e("main", "setupLegend: ${dataList.size}")
 
-    private fun setupLegendSecond() {
-        binding.chart2.setLegend(binding.legendRecyclerView2)
-        binding.legendRecyclerView2.layoutManager = LinearLayoutManager(this)
-        binding.chart2.legendTextColor = getColor(color.default_legend_text_color)
-        binding.chart2.legendValueTextColor = getColor(color.default_legend_sub_text_color)
-        binding.chart2.legendTextSize = 15.5f
-        binding.chart2.legendValueTextSize = 12.5f
-        binding.chart2.legendDotHeight = 20f
-        binding.chart2.legendDotWidth = 40f
-        binding.chart2.legendDotCornerRadius = 10f
-        binding.chart2.legendDotSpacing = 29.1416f
-        binding.chart2.legendValueSpacing = 21.5864f
-        binding.chart2.legendValue = true
-        binding.chart2.legendValueShow = true
     }
-
 
 }

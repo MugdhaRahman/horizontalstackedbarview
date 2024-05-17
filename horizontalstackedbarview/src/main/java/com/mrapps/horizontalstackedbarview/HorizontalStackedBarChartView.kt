@@ -3,7 +3,6 @@ package com.mrapps.horizontalstackedbarview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
@@ -11,9 +10,6 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.mrapps.horizontalstackedbarview.R
 
 class HorizontalStackedBarChartView @JvmOverloads constructor(
     context: Context,
@@ -28,6 +24,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     private var bounds: Rect = Rect()
     private var mainPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var newDrawable: GradientDrawable = GradientDrawable()
+    private var legendView: LegendView? = null
 
     private val tbLeftRadius: FloatArray =
         floatArrayOf(cornerRadius, cornerRadius, 0f, 0f, 0f, 0f, cornerRadius, cornerRadius)
@@ -39,73 +36,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
     private var fullWidth: Int = 0
     private var fullHeight: Int = 0
-
-    private var legendAdapter: LegendAdapter? = null
-
-    var legendTextColor: Int = Color.BLACK
-        set(value) {
-            field = value
-            legendAdapter?.setLegendTextColor(value)
-        }
-
-    var legendValueTextColor: Int = Color.BLACK
-        set(value) {
-            field = value
-            legendAdapter?.setLegendValueTextColor(value)
-        }
-
-    var legendTextSize: Float = 15f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendTextSize(value)
-        }
-
-    var legendValueTextSize: Float = 15f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendValueTextSize(value)
-        }
-    var legendDotHeight: Float = 40f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendDotHeight(value)
-        }
-
-    var legendDotWidth: Float = 40f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendDotWidth(value)
-        }
-
-    var legendDotCornerRadius: Float = 10f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendDotCornerRadius(value)
-        }
-
-    var legendValue: Boolean = false
-        set(value) {
-            field = value
-            legendAdapter?.setLegendValue(value)
-        }
-
-    var legendValueShow: Boolean = true
-        set(value) {
-            field = value
-            legendAdapter?.setLegendValueShow(value)
-        }
-
-    var legendDotSpacing: Float = 10f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendDotSpacing(value)
-        }
-
-    var legendValueSpacing: Float = 10f
-        set(value) {
-            field = value
-            legendAdapter?.setLegendValueSpacing(value)
-        }
 
 
     init {
@@ -148,6 +78,14 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         dataList.add(Data(newDataId, newColorRes, newValue, newDataName))
         calculatePercentages()
         show()
+        // Update the legend view with the new data
+        legendView?.updateLegendData(dataList)
+    }
+
+    fun setLegendView(legendView: LegendView) {
+        this.legendView = legendView
+        // Initial data update
+        legendView.updateLegendData(dataList)
     }
 
     private fun show() {
@@ -211,49 +149,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
     private fun toPercentage(rectWidth: Float): Float {
         return rectWidth * 100 / fullWidth
-    }
-
-    fun setLegend(recyclerView: RecyclerView) {
-        if (dataList.isNotEmpty()) {
-            val legendData = mutableListOf<Data>()
-            for ((index, chartData) in dataList.withIndex()) {
-                legendData.add(
-                    Data(
-                        index,
-                        chartData.color,
-                        chartData.value,
-                        chartData.name,
-                        chartData.percentage
-                    )
-                )
-            }
-
-            if (legendAdapter == null) {
-                legendAdapter = LegendAdapter(legendData)
-            } else {
-                legendAdapter?.updateData(legendData)
-            }
-
-            legendAdapter?.let {
-                it.setLegendTextColor(legendTextColor)
-                it.setLegendValueTextColor(legendValueTextColor)
-                it.setLegendTextSize(legendTextSize)
-                it.setLegendValueTextSize(legendValueTextSize)
-                it.setLegendDotHeight(legendDotHeight)
-                it.setLegendDotWidth(legendDotWidth)
-                it.setLegendDotCornerRadius(legendDotCornerRadius)
-                it.setLegendValue(legendValue)
-                it.setLegendValueShow(legendValueShow)
-                it.setLegendDotSpacing(legendDotSpacing)
-                it.setLegendValueSpacing(legendValueSpacing)
-            }
-
-            recyclerView.layoutManager = LinearLayoutManager(context)
-            recyclerView.adapter = legendAdapter
-        } else {
-            legendAdapter = null
-            recyclerView.adapter = null
-        }
     }
 
 

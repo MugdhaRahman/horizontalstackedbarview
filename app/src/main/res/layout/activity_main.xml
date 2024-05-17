@@ -17,26 +17,16 @@
         app:barColor="@color/gray"
         app:barCornerRadius="8" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/legendRecyclerView"
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/legendRecyclerView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="10dp" />-->
+
+    <com.mrapps.horizontalstackedbarview.LegendView
+        android:id="@+id/legendView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp" />
-
-
-    <com.mrapps.horizontalstackedbarview.HorizontalStackedBarChartView
-        android:id="@+id/chart2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="top"
-        android:layout_margin="10dp"
-        app:barColor="@color/gray"
-        app:barCornerRadius="8" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/legendRecyclerView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp" />
+        android:layout_margin="10dp" />
 
 </LinearLayout>

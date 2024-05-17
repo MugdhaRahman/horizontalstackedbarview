@@ -16,8 +16,8 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
 
     private var legendTextColor = R.color.default_legend_text_color
     private var legendValueTextColor = R.color.default_legend_sub_text_color
-    private var legendTextSize = R.dimen.default_legend_text_size.toFloat()
-    private var legendValueTextSize = R.dimen.default_legend_value_text_size.toFloat()
+    private var legendTextSize = 15f
+    private var legendValueTextSize = 12f
     private var legendDotHeight = 40f
     private var legendDotWidth = 40f
     private var legendDotCornerRadius = 10f
@@ -80,6 +80,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         legendValueSpacing = value
         notifyDataSetChanged()
     }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {

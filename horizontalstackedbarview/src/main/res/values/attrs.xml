@@ -4,8 +4,22 @@
     <declare-styleable name="HorizontalStackedBarChartView">
         <attr name="barColor" format="color" />
         <attr name="barCornerRadius" format="float" />
-
     </declare-styleable>
 
+<!--    <declare-styleable name="LegendView">-->
+<!--        <attr name="legend_orientation" format="enum">-->
+<!--            <enum name="horizontal" value="0" />-->
+<!--            <enum name="vertical" value="1" />-->
+<!--        </attr>-->
+
+<!--        <attr name="legend_text_style" format="enum">-->
+<!--            <enum name="normal" value="0" />-->
+<!--            <enum name="bold" value="1" />-->
+<!--            <enum name="italic" value="2" />-->
+<!--        </attr>-->
+
+<!--        <attr name="legend_text_size" format="dimension" />-->
+<!--        <attr name="legend_text_color" format="color" />-->
+<!--    </declare-styleable>-->
 
 </resources>

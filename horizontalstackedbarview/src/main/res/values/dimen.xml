@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="default_legend_text_size">15.5sp</dimen>
-    <dimen name="default_legend_value_text_size">13.5sp</dimen>
-</resources>
