@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private val people = 50.00
     private val animal = 100.25
-    private val trees = 50.32
+    private val trees = 110.50
     private val ocean = 200.20
     private val zombies = 30.00
     private val aliens = 40.00
