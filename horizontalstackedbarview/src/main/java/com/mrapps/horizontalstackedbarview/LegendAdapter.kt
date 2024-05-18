@@ -26,57 +26,57 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendValue = false
     private var legendValueShow = true
 
-    fun setLegendTextColor(color: Int) {
+    internal fun setLegendTextColor(color: Int) {
         legendTextColor = color
         notifyDataSetChanged()
     }
 
-    fun setLegendValueTextColor(color: Int) {
+    internal fun setLegendValueTextColor(color: Int) {
         legendValueTextColor = color
         notifyDataSetChanged()
     }
 
-    fun setLegendTextSize(size: Float) {
+    internal fun setLegendTextSize(size: Float) {
         legendTextSize = size
         notifyDataSetChanged()
     }
 
-    fun setLegendValueTextSize(size: Float) {
+    internal fun setLegendValueTextSize(size: Float) {
         legendValueTextSize = size
         notifyDataSetChanged()
     }
 
-    fun setLegendDotHeight(size: Float) {
+    internal fun setLegendDotHeight(size: Float) {
         legendDotHeight = size
         notifyDataSetChanged()
     }
 
-    fun setLegendDotWidth(size: Float) {
+    internal fun setLegendDotWidth(size: Float) {
         legendDotWidth = size
         notifyDataSetChanged()
     }
 
-    fun setLegendDotCornerRadius(size: Float) {
+    internal fun setLegendDotCornerRadius(size: Float) {
         legendDotCornerRadius = size
         notifyDataSetChanged()
     }
 
-    fun setLegendValue(value: Boolean) {
+    internal fun setLegendValue(value: Boolean) {
         legendValue = value
         notifyDataSetChanged()
     }
 
-    fun setLegendValueShow(value: Boolean) {
+    internal fun setLegendValueShow(value: Boolean) {
         legendValueShow = value
         notifyDataSetChanged()
     }
 
-    fun setLegendDotSpacing(value: Float) {
+    internal fun setLegendDotSpacing(value: Float) {
         LegendDotSpacing = value
         notifyDataSetChanged()
     }
 
-    fun setLegendValueSpacing(value: Float) {
+    internal fun setLegendValueSpacing(value: Float) {
         legendValueSpacing = value
         notifyDataSetChanged()
     }
