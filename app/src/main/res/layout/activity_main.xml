@@ -46,11 +46,35 @@
         android:textColor="@color/default_legend_text_color"
         android:textSize="15sp" />
 
-    <com.mrapps.horizontalstackedbarview.LegendView
-        android:id="@+id/legendView2"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:orientation="horizontal">
+
+        <com.mrapps.horizontalstackedbarview.LegendView
+            android:id="@+id/legendView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp" />
+
+        <com.mrapps.horizontalstackedbarview.HorizontalStackedBarChartView
+            android:id="@+id/chart2"
+            android:layout_width="50dp"
+            android:layout_height="250dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            app:barColor="@color/gray"
+            app:barCornerRadius="10"
+            app:orientation="vertical" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>

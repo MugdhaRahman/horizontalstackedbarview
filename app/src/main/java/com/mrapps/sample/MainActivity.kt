@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
         setupBar()
+        setupBar2()
         setupLegend()
         setupLegend2()
 
@@ -36,6 +37,16 @@ class MainActivity : AppCompatActivity() {
         binding.chart.addData(4, ocean, getColor(R.color.blue), "Ocean")
         binding.chart.addData(5, zombies, getColor(R.color.red), "Zombies")
         binding.chart.addData(6, aliens, getColor(R.color.maroon), "Aliens")
+
+    }
+
+    private fun setupBar2() {
+        binding.chart2.addData(1, people, getColor(R.color.purple_200), "People")
+        binding.chart2.addData(2, animal, getColor(R.color.purple_500), "Animal")
+        binding.chart2.addData(3, trees, getColor(R.color.green), "Trees")
+        binding.chart2.addData(4, ocean, getColor(R.color.blue), "Ocean")
+        binding.chart2.addData(5, zombies, getColor(R.color.red), "Zombies")
+        binding.chart2.addData(6, aliens, getColor(R.color.maroon), "Aliens")
 
     }
 
@@ -58,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupLegend2() {
-        binding.chart.setLegendView(binding.legendView2)
+        binding.chart2.setLegendView(binding.legendView2)
         binding.legendView2.setLegendHorizontal = false
         binding.legendView2.legendTextColor = getColor(color.default_legend_text_color)
         binding.legendView2.legendValueTextColor = getColor(color.default_legend_sub_text_color)

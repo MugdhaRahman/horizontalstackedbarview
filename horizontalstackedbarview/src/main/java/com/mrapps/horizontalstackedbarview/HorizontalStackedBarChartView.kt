@@ -25,18 +25,22 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     private var mainPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var newDrawable: GradientDrawable = GradientDrawable()
     private var legendView: LegendView? = null
+    private var orientation: Int = 0  // 0 for horizontal, 1 for vertical
 
-    private val tbLeftRadius: FloatArray =
+    private val horizontalLeftRadius: FloatArray =
         floatArrayOf(cornerRadius, cornerRadius, 0f, 0f, 0f, 0f, cornerRadius, cornerRadius)
-    private val flatRadius: FloatArray = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
-    private val tbRightRadius: FloatArray =
+    private val horizontalRightRadius: FloatArray =
         floatArrayOf(0f, 0f, cornerRadius, cornerRadius, cornerRadius, cornerRadius, 0f, 0f)
+    private val verticalTopRadius: FloatArray =
+        floatArrayOf(cornerRadius, cornerRadius, cornerRadius, cornerRadius, 0f, 0f, 0f, 0f)
+    private val verticalBottomRadius: FloatArray =
+        floatArrayOf(0f, 0f, 0f, 0f, cornerRadius, cornerRadius, cornerRadius, cornerRadius)
+    private val flatRadius: FloatArray = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
 
     private var currentPercentage: Float = 0f
 
     private var fullWidth: Int = 0
     private var fullHeight: Int = 0
-
 
     init {
         init(attrs)
@@ -52,6 +56,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                 R.styleable.HorizontalStackedBarChartView_barColor,
                 ContextCompat.getColor(context, R.color.default_bar_color)
             )
+            orientation = ta.getInt(R.styleable.HorizontalStackedBarChartView_orientation, 0)
             ta.recycle()
         }
 
@@ -65,7 +70,6 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
 
         invalidate()
     }
-
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
@@ -109,13 +113,19 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         mainRect.right = fullWidth.toFloat()
         mainRect.bottom = fullHeight.toFloat()
         mainPaint.color = backgroundColor
+
+        if (orientation == 0) {
+            drawHorizontalBarChart(canvas)
+        } else {
+            drawVerticalBarChart(canvas)
+        }
+    }
+
+    private fun drawHorizontalBarChart(canvas: Canvas) {
         canvas.drawRoundRect(mainRect, cornerRadius, cornerRadius, mainPaint)
 
         var starting = true
-        var totalValue = 0.00
-        for (data in dataList) {
-            totalValue += data.value
-        }
+        val totalValue = dataList.sumOf { it.value }
 
         var currentWidth = 0f
         for ((index, data) in dataList.withIndex()) {
@@ -125,29 +135,65 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             bounds.right = newWidth.toInt()
             bounds.bottom = fullHeight
 
-            if (starting) {
-                newDrawable.cornerRadii = tbLeftRadius
-                starting = false
-            } else if (index == dataList.lastIndex) {
-                newDrawable.cornerRadii = tbRightRadius
-            } else {
-                newDrawable.cornerRadii = flatRadius
+            newDrawable.bounds = bounds
+
+            newDrawable.cornerRadii = when {
+                starting -> {
+                    starting = false
+                    horizontalLeftRadius
+                }
+                index == dataList.lastIndex -> horizontalRightRadius
+                else -> flatRadius
             }
 
             newDrawable.setColor(data.color)
-            newDrawable.bounds = bounds
             newDrawable.draw(canvas)
             canvas.translate(newWidth.toFloat(), 0f)
             currentWidth += newWidth.toFloat()
-
         }
 
         currentPercentage = toPercentage(currentWidth)
     }
 
-    private fun toPercentage(rectWidth: Float): Float {
-        return rectWidth * 100 / fullWidth
+    private fun drawVerticalBarChart(canvas: Canvas) {
+        canvas.drawRoundRect(mainRect, cornerRadius, cornerRadius, mainPaint)
+
+        var starting = true
+        val totalValue = dataList.sumOf { it.value }
+
+        var currentHeight = 0f
+        for ((index, data) in dataList.withIndex()) {
+            val newHeight = fullHeight * data.value / totalValue
+            bounds.top = 0
+            bounds.left = 0
+            bounds.right = fullWidth
+            bounds.bottom = newHeight.toInt()
+
+            newDrawable.bounds = bounds
+
+            newDrawable.cornerRadii = when {
+                starting -> {
+                    starting = false
+                    verticalTopRadius
+                }
+                index == dataList.lastIndex -> verticalBottomRadius
+                else -> flatRadius
+            }
+
+            newDrawable.setColor(data.color)
+            newDrawable.draw(canvas)
+            canvas.translate(0f, newHeight.toFloat())
+            currentHeight += newHeight.toFloat()
+        }
+
+        currentPercentage = toPercentage(currentHeight)
     }
 
-
+    private fun toPercentage(rectSize: Float): Float {
+        return if (orientation == 0) {
+            rectSize * 100 / fullWidth
+        } else {
+            rectSize * 100 / fullHeight
+        }
+    }
 }
