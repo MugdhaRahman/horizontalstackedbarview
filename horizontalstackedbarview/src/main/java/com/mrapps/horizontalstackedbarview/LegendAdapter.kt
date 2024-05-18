@@ -23,6 +23,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendDotCornerRadius = 10f
     private var LegendDotSpacing = 20f
     private var legendValueSpacing = 20f
+    private var legendItemSpace = 10f
     private var legendValue = false
     private var legendValueShow = true
 
@@ -81,6 +82,11 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
+    internal fun setLegendItemSpace(value: Float) {
+        legendItemSpace = value
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -127,6 +133,10 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         val valueLayoutParams = holder.binding.valueTextView.layoutParams as MarginLayoutParams
         valueLayoutParams.marginStart = legendValueSpacing.toInt()
         holder.binding.valueTextView.layoutParams = valueLayoutParams
+
+        val itemLayoutParams = holder.binding.root.layoutParams as MarginLayoutParams
+        itemLayoutParams.bottomMargin = legendItemSpace.toInt()
+        holder.binding.root.layoutParams = itemLayoutParams
 
 
     }

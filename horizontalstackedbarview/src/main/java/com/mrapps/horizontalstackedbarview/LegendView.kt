@@ -86,6 +86,12 @@ class LegendView @JvmOverloads constructor(
             legendAdapter.setLegendValueSpacing(value)
         }
 
+    var legendItemSpace: Float = 10f
+        set(value) {
+            field = value
+            legendAdapter.setLegendItemSpace(value)
+        }
+
     var setHorizontalSpanCount: Int = 2
         set(value) {
             field = value
@@ -118,7 +124,7 @@ class LegendView @JvmOverloads constructor(
         legendAdapter.updateData(dataList)
     }
 
-    internal fun setLegendData(newDataList:  List<Data>) {
+    internal fun setLegendData(newDataList: List<Data>) {
         updateLegendData(newDataList)
     }
 }

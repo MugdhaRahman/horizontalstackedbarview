@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val people = 100.00
-    private val animal = 200.25
+    private val people = 50.00
+    private val animal = 100.25
     private val trees = 50.32
-    private val ocean = 20.00
+    private val ocean = 200.20
     private val zombies = 30.00
     private val aliens = 40.00
 
@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBar() {
-        binding.chart.addData(1, people, getColor(R.color.purple_200), "People")
-        binding.chart.addData(2, animal, getColor(R.color.purple_500), "Animal")
+        binding.chart.addData(1, people, getColor(R.color.purple_500), "People")
+        binding.chart.addData(2, animal, getColor(R.color.purple_200), "Animal")
         binding.chart.addData(3, trees, getColor(R.color.green), "Trees")
         binding.chart.addData(4, ocean, getColor(R.color.blue), "Ocean")
         binding.chart.addData(5, zombies, getColor(R.color.red), "Zombies")
@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         binding.legendView.legendDotCornerRadius = 8f
         binding.legendView.legendDotSpacing = 20.8995f
         binding.legendView.legendValueSpacing = 21.22550f
+        binding.legendView.legendItemSpace = 8.5f
         binding.legendView.legendValue = false
         binding.legendView.legendValueShow = true
 
@@ -80,7 +81,8 @@ class MainActivity : AppCompatActivity() {
         binding.legendView2.legendDotCornerRadius = 8f
         binding.legendView2.legendDotSpacing = 25.8995f
         binding.legendView2.legendValueSpacing = 20.22550f
-        binding.legendView2.legendValue = false
+        binding.legendView2.legendItemSpace = 40.5f
+        binding.legendView2.legendValue = true
         binding.legendView2.legendValueShow = true
     }
 
