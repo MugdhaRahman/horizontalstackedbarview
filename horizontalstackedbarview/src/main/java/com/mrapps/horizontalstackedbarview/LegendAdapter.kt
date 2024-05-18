@@ -82,7 +82,6 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     }
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LegendViewHolder(binding)
@@ -137,12 +136,11 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     }
 
 
-    fun updateData(newData: List<Data>) {
+    internal fun updateData(newData: List<Data>) {
         legendData.clear()
         legendData.addAll(newData)
         notifyDataSetChanged()
     }
-
 
     class LegendViewHolder(val binding: ItemLegendBinding) :
         RecyclerView.ViewHolder(binding.root)

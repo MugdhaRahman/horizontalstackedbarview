@@ -78,14 +78,12 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         dataList.add(Data(newDataId, newColorRes, newValue, newDataName))
         calculatePercentages()
         show()
-        // Update the legend view with the new data
-        legendView?.updateLegendData(dataList)
+        legendView?.setLegendData(dataList)
     }
 
     fun setLegendView(legendView: LegendView) {
         this.legendView = legendView
-        // Initial data update
-        legendView.updateLegendData(dataList)
+        legendView.setLegendData(dataList)
     }
 
     private fun show() {

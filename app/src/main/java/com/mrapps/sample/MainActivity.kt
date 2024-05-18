@@ -73,4 +73,5 @@ class MainActivity : AppCompatActivity() {
         binding.legendView2.legendValueShow = true
     }
 
+
 }

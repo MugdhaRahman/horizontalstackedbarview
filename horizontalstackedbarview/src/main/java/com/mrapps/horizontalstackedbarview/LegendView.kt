@@ -109,15 +109,17 @@ class LegendView @JvmOverloads constructor(
         legendRecyclerView = findViewById(R.id.legendRecyclerView)
         legendAdapter = LegendAdapter(mutableListOf())
         legendRecyclerView.adapter = legendAdapter
-
-        // Default layout manager
         legendRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
-    fun updateLegendData(newDataList: List<Data>) {
+    private fun updateLegendData(newDataList: List<Data>) {
         dataList.clear()
         dataList.addAll(newDataList)
         legendAdapter.updateData(dataList)
+    }
+
+    internal fun setLegendData(newDataList:  List<Data>) {
+        updateLegendData(newDataList)
     }
 }
 
