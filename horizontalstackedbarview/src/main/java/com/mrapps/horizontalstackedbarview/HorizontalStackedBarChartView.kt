@@ -51,7 +51,10 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         set?.let {
             val ta = context.obtainStyledAttributes(set, R.styleable.HorizontalStackedBarChartView)
             cornerRadius =
-                ta.getFloat(R.styleable.HorizontalStackedBarChartView_barCornerRadius, cornerRadius)
+                ta.getDimension(
+                    R.styleable.HorizontalStackedBarChartView_barCornerRadius,
+                    cornerRadius
+                )
             backgroundColor = ta.getColor(
                 R.styleable.HorizontalStackedBarChartView_barColor,
                 ContextCompat.getColor(context, R.color.default_bar_color)
@@ -142,6 +145,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                     starting = false
                     horizontalLeftRadius
                 }
+
                 index == dataList.lastIndex -> horizontalRightRadius
                 else -> flatRadius
             }
@@ -176,6 +180,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
                     starting = false
                     verticalTopRadius
                 }
+
                 index == dataList.lastIndex -> verticalBottomRadius
                 else -> flatRadius
             }

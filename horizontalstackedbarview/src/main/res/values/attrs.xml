@@ -3,7 +3,7 @@
 
     <declare-styleable name="HorizontalStackedBarChartView">
         <attr name="barColor" format="color" />
-        <attr name="barCornerRadius" format="float" />
+        <attr name="barCornerRadius" format="dimension" />
 
         <attr name="orientation" format="enum">
             <enum name="horizontal" value="0" />

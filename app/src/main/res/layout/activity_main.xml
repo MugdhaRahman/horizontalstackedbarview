@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         app:barColor="@color/gray"
-        app:barCornerRadius="8" />
+        app:barCornerRadius="10dp"  />
 
 
     <TextView
@@ -68,7 +68,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
             app:barColor="@color/gray"
-            app:barCornerRadius="10"
+            app:barCornerRadius="10dp"
             app:orientation="vertical" />
 
     </RelativeLayout>
