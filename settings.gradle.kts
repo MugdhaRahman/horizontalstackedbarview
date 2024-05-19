@@ -16,10 +16,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
 }
 
-rootProject.name = "Horizontal Stacked Chart View"
+rootProject.name = "HorizontalStackedBarView"
 include(":app")
 include(":horizontalstackedbarview")
