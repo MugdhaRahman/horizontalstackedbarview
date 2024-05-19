@@ -116,6 +116,19 @@ class LegendView @JvmOverloads constructor(
         legendAdapter = LegendAdapter(mutableListOf())
         legendRecyclerView.adapter = legendAdapter
         legendRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        if (isInEditMode) {
+            initSampleData()
+        }
+    }
+
+    private fun initSampleData() {
+        val sampleData = listOf(
+            Data(1, Color.RED, 50.0, "Red"),
+            Data(2, Color.GREEN, 30.0, "Green"),
+            Data(3, Color.BLUE, 20.0, "Blue")
+        )
+        updateLegendData(sampleData)
     }
 
     private fun updateLegendData(newDataList: List<Data>) {
