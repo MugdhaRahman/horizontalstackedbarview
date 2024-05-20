@@ -27,4 +27,13 @@
 
    - highly customizable legends 
 
-   - Lightweight and highly configurable
+   - Lightweight and highly configurable#
+
+
+## Demo
+
+|horizontal|vertical|
+|---|---|
+| ![shot1](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/187cd9db-43ea-46cd-ba01-fc8ca00018d9) | ![shot2](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/7e6138c4-9d2a-439f-92dc-59920a501e6a)
+
+
