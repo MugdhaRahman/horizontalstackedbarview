@@ -27,7 +27,7 @@
 
    - highly customizable legends 
 
-   - Lightweight and highly configurable#
+   - Lightweight and highly configurable
 
 
 ## Demo
