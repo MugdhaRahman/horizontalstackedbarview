@@ -8,7 +8,7 @@
 
  <img src="https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/86baed63-cddb-4b0b-8df8-0c1ae0428dfa" width = "100" height = "100" alt=""/>
 
- <h3>A customizable and easy-to-use Horizontal and Vertical Stacked Bar Chart library for Android<b></b></h3>
+ <h3>A customizable and easy-to-use Horizontal and Vertical Stacked Bar library for Android<b></b></h3>
 
   <p> <a href="https://github.com/MugdhaRahman/horizontalstackedbarview/issues"><img src="https://img.shields.io/github/issues/MugdhaRahman/horizontalstackedbarview" alt="GitHub issues"></a>
    <a href="https://github.com/MugdhaRahman/horizontalstackedbarview/network"><img src="https://img.shields.io/github/forks/MugdhaRahman/horizontalstackedbarview" alt="GitHub forks"></a> 
