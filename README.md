@@ -32,8 +32,8 @@
 
 ## Demo
 
-|horizontal|vertical|
+|horizontal|`vertical`|
 |---|---|
-| ![shot1](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/187cd9db-43ea-46cd-ba01-fc8ca00018d9) | ![shot2](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/7e6138c4-9d2a-439f-92dc-59920a501e6a)
+| ![shot1](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/c635cebd-4636-4fd7-8807-59f731e12d0c) | ![shot2](https://github.com/MugdhaRahman/horizontalstackedbarview/assets/113788414/961bc7fe-2d71-424e-b53d-70dc5a128b39)
 
 
