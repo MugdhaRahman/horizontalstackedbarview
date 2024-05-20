@@ -41,7 +41,8 @@ android {
 
 dependencies {
 
-    implementation((project(":horizontalstackedbarview")))
+//    implementation((project(":horizontalstackedbarview")))
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -51,6 +52,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation("com.github.MugdhaRahman:horizontalstackedbarview:0.1")
+
 
 
 }
