@@ -161,7 +161,7 @@ legendView.legendDotWidth = 35f // Width of the legend dots
 legendView.legendDotCornerRadius = 8f // Corner radius for the legend dots
 legendView.legendDotSpacing = 20.9f // Spacing between legend dots
 legendView.legendValueSpacing = 21.2f // Spacing between legend values
-binding.legendView2.legendItemSpace = 40.5f // Spacing between legend iteam
+legendView.legendItemSpace = 40.5f // Spacing between legend iteam
 legendView.legendValue = true // Set to false for percent value
 legendView.legendValueShow = true // Show/hide legend values
 
