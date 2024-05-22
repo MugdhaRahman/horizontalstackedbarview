@@ -182,7 +182,7 @@ If this project helps you a little bit, then give a Star ⭐ the Repo.
 ## Notes
 - The library is in its early stages, so there may be some bugs.
 - If you find any bugs, please report them in the `Issues` tab.
-- Sample app is available in the [app](https://github.com/MugdhaRahman/horizontalstackedbarview/tree/master/app) directory.
+- Sample app is available in the [app](https://github.com/https://github.com/MugdhaRahman/horizontalstackedbarview/blob/master/app/build/outputs/apk/debug/app-debug.apk) directory.
 
 
 ## License
