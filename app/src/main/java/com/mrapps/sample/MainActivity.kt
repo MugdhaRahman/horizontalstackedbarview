@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         binding.legendView2.legendDotCornerRadius = 8f
         binding.legendView2.legendDotSpacing = 25.8995f
         binding.legendView2.legendValueSpacing = 20.22550f
-        binding.legendView2.legendItemSpaceVertical = 60.5f
+        binding.legendView2.legendItemSpaceVertical = 45.5f
         binding.legendView2.legendValue = true
         binding.legendView2.legendValueShow = true
     }
