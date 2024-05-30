@@ -7,6 +7,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mrapps.horizontalstackedbarview.databinding.ItemLegendBinding
 
@@ -21,11 +22,14 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendDotHeight = 40f
     private var legendDotWidth = 40f
     private var legendDotCornerRadius = 10f
-    private var LegendDotSpacing = 20f
+    private var legendDotSpacing = 20f
     private var legendValueSpacing = 20f
-    private var legendItemSpace = 10f
+    private var legendItemSpaceVertical = 10f
+    private var legendItemSpaceHorizontal = 10f
     private var legendValue = false
     private var legendValueShow = true
+
+    private var legendView: LegendView? = null
 
     internal fun setLegendTextColor(color: Int) {
         legendTextColor = color
@@ -73,7 +77,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     }
 
     internal fun setLegendDotSpacing(value: Float) {
-        LegendDotSpacing = value
+        legendDotSpacing = value
         notifyDataSetChanged()
     }
 
@@ -82,8 +86,13 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
-    internal fun setLegendItemSpace(value: Float) {
-        legendItemSpace = value
+    internal fun setLegendItemSpaceVertical(value: Float) {
+        legendItemSpaceVertical = value
+        notifyDataSetChanged()
+    }
+
+    internal fun setLegendItemSpaceHorizontal(value: Float) {
+        legendItemSpaceHorizontal = value
         notifyDataSetChanged()
     }
 
@@ -110,7 +119,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         holder.binding.colorView.layoutParams.width = legendDotWidth.toInt()
 
         val layoutParams = holder.binding.colorView.layoutParams as MarginLayoutParams
-        layoutParams.marginEnd = LegendDotSpacing.toInt()
+        layoutParams.marginEnd = legendDotSpacing.toInt()
         holder.binding.colorView.layoutParams = layoutParams
 
         holder.binding.labelTextView.text = data.name
@@ -135,9 +144,22 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         holder.binding.valueTextView.layoutParams = valueLayoutParams
 
         val itemLayoutParams = holder.binding.root.layoutParams as MarginLayoutParams
-        itemLayoutParams.bottomMargin = legendItemSpace.toInt()
+        itemLayoutParams.bottomMargin = legendItemSpaceVertical.toInt()
+        itemLayoutParams.marginEnd = legendItemSpaceHorizontal.toInt()
         holder.binding.root.layoutParams = itemLayoutParams
 
+        val isGridLayoutManager = legendView?.legendRecyclerView?.layoutManager is GridLayoutManager
+        if (isGridLayoutManager) {
+            val spanCount = legendView?.setHorizontalSpanCount
+            val isLastColumn = (position + 1) % spanCount!! == 0
+            if (isLastColumn) {
+                itemLayoutParams.marginEnd = 0
+            }
+        }
+
+        if (position == itemCount - 1) {
+            itemLayoutParams.bottomMargin = 5
+        }
 
     }
 

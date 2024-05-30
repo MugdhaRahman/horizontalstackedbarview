@@ -14,7 +14,6 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        app:orientation="horizontal"
         app:barColor="@color/gray"
         app:barCornerRadius="10dp"  />
 

@@ -15,7 +15,7 @@ class LegendView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val legendRecyclerView: RecyclerView
+    internal val legendRecyclerView: RecyclerView
     private var legendAdapter: LegendAdapter
 
     private var dataList: MutableList<Data> = mutableListOf()
@@ -86,10 +86,16 @@ class LegendView @JvmOverloads constructor(
             legendAdapter.setLegendValueSpacing(value)
         }
 
-    var legendItemSpace: Float = 10f
+    var legendItemSpaceVertical: Float = 10f
         set(value) {
             field = value
-            legendAdapter.setLegendItemSpace(value)
+            legendAdapter.setLegendItemSpaceVertical(value)
+        }
+
+    var legendItemSpaceHorizontal: Float = 10f
+        set(value) {
+            field = value
+            legendAdapter.setLegendItemSpaceHorizontal(value)
         }
 
     var setHorizontalSpanCount: Int = 2
