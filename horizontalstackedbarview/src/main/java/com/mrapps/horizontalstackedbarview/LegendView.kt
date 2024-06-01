@@ -20,6 +20,7 @@ class LegendView @JvmOverloads constructor(
 
     private var dataList: MutableList<Data> = mutableListOf()
 
+
     var legendTextColor: Int = Color.BLACK
         set(value) {
             field = value
@@ -115,6 +116,19 @@ class LegendView @JvmOverloads constructor(
                 LinearLayoutManager(context)
             }
         }
+
+    var legendTextStyle: Int = R.style.DefaultLegendTextStyle
+        set(value) {
+            field = value
+            legendAdapter.setLegendTextStyle(value)
+        }
+
+    var legendValueTextStyle: Int = R.style.DefaultLegendTextStyle
+        set(value) {
+            field = value
+            legendAdapter.setLegendValueTextStyle(value)
+        }
+
 
     init {
         LayoutInflater.from(context).inflate(R.layout.legend_recycler_view, this, true)

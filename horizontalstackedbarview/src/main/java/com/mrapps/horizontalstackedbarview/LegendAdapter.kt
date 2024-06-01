@@ -17,6 +17,8 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
 
     private var legendTextColor = R.color.default_legend_text_color
     private var legendValueTextColor = R.color.default_legend_sub_text_color
+    private var legendTextStyle: Int = R.style.DefaultLegendTextStyle
+    private var legendValueTextStyle: Int = R.style.DefaultLegendTextStyle
     private var legendTextSize = 15f
     private var legendValueTextSize = 12f
     private var legendDotHeight = 40f
@@ -96,6 +98,16 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
         notifyDataSetChanged()
     }
 
+    internal fun setLegendTextStyle(style: Int) {
+        legendTextStyle = style
+        notifyDataSetChanged()
+    }
+
+    internal fun setLegendValueTextStyle(style: Int) {
+        legendValueTextStyle = style
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LegendViewHolder {
         val binding = ItemLegendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -108,9 +120,12 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
 
         holder.binding.labelTextView.setTextColor(legendTextColor)
         holder.binding.labelTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendTextSize)
+        holder.binding.labelTextView.setTextAppearance(legendTextStyle)
 
         holder.binding.valueTextView.setTextColor(legendValueTextColor)
         holder.binding.valueTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, legendValueTextSize)
+        holder.binding.valueTextView.setTextAppearance(legendValueTextStyle)
+
 
         holder.binding.colorView.setCardBackgroundColor(data.color)
 
