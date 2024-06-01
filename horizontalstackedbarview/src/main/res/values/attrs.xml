@@ -13,8 +13,11 @@
 
     <style name="DefaultLegendTextStyle">
         <item name="android:textColor">@color/default_legend_text_color</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="DefaultLegendValueTextStyle">
+        <item name="android:textColor">@color/default_legend_sub_text_color</item>
     </style>
 
 

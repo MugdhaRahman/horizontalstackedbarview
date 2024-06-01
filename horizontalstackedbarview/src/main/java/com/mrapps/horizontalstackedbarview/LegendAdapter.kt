@@ -18,7 +18,7 @@ class LegendAdapter(private val legendData: MutableList<Data>) :
     private var legendTextColor = R.color.default_legend_text_color
     private var legendValueTextColor = R.color.default_legend_sub_text_color
     private var legendTextStyle: Int = R.style.DefaultLegendTextStyle
-    private var legendValueTextStyle: Int = R.style.DefaultLegendTextStyle
+    private var legendValueTextStyle: Int = R.style.DefaultLegendValueTextStyle
     private var legendTextSize = 15f
     private var legendValueTextSize = 12f
     private var legendDotHeight = 40f

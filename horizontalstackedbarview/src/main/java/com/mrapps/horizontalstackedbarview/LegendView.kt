@@ -123,7 +123,7 @@ class LegendView @JvmOverloads constructor(
             legendAdapter.setLegendTextStyle(value)
         }
 
-    var legendValueTextStyle: Int = R.style.DefaultLegendTextStyle
+    var legendValueTextStyle: Int = R.style.DefaultLegendValueTextStyle
         set(value) {
             field = value
             legendAdapter.setLegendValueTextStyle(value)
