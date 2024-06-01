@@ -79,7 +79,7 @@ Add this to your module's `build.gradle.kts` file (latest version <a href="https
 ``` kotlin
 dependencies {
     ...
-    implementation("com.github.MugdhaRahman:horizontalstackedbarview:0.1")
+    implementation("com.github.MugdhaRahman:horizontalstackedbarview:0.2")
 }
 ```
 
@@ -88,7 +88,7 @@ dependencies {
 ``` groovy
 dependencies {
     ...
-	        implementation 'com.github.MugdhaRahman:horizontalstackedbarview:0.1'
+	        implementation 'com.github.MugdhaRahman:horizontalstackedbarview:0.2'
 }
 ```
 
@@ -164,6 +164,8 @@ legendView.legendValueSpacing = 21.2f // Spacing between legend values
 legendView.legendItemSpace = 40.5f // Spacing between legend iteam
 legendView.legendValue = true // Set to false for percent value
 legendView.legendValueShow = true // Show/hide legend values
+legendView.legendTextStyle = DefaultLegendTextStyle // Legend text style
+legendView.legendValueTextStyle = DefaultLegendValueTextStyle // Legend value text style
 
 ```
 
