@@ -79,7 +79,7 @@ Add this to your module's `build.gradle.kts` file (latest version <a href="https
 ``` kotlin
 dependencies {
     ...
-    implementation("com.github.MugdhaRahman:horizontalstackedbarview:0.2")
+    implementation("com.github.MugdhaRahman:horizontalstackedbarview:0.3")
 }
 ```
 
@@ -88,7 +88,7 @@ dependencies {
 ``` groovy
 dependencies {
     ...
-	        implementation 'com.github.MugdhaRahman:horizontalstackedbarview:0.2'
+	        implementation 'com.github.MugdhaRahman:horizontalstackedbarview:0.3'
 }
 ```
 
