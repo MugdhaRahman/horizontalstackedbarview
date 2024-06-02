@@ -27,6 +27,9 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     private var legendView: LegendView? = null
     private var orientation: Int = 0  // 0 for horizontal, 1 for vertical
 
+    private var isDataInitialized: Boolean = false
+
+
     private val horizontalLeftRadius: FloatArray =
         floatArrayOf(cornerRadius, cornerRadius, 0f, 0f, 0f, 0f, cornerRadius, cornerRadius)
     private val horizontalRightRadius: FloatArray =
@@ -82,7 +85,18 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
     }
 
     fun addData(newDataId: Int, newValue: Double, newColorRes: Int, newDataName: String) {
-        dataList.add(Data(newDataId, newColorRes, newValue, newDataName))
+        if (!isDataInitialized) {
+            dataList.clear()
+            isDataInitialized = true
+        }
+        val existingData = dataList.find { it.id == newDataId }
+        if (existingData != null) {
+            existingData.value = newValue
+            existingData.color = newColorRes
+            existingData.name = newDataName
+        } else {
+            dataList.add(Data(newDataId, newColorRes, newValue, newDataName))
+        }
         calculatePercentages()
         show()
         legendView?.setLegendData(dataList)
@@ -201,4 +215,15 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
             rectSize * 100 / fullHeight
         }
     }
+
+//    fun initializeData(data: List<Data>) {
+//        if (!isDataInitialized) {
+//            dataList.clear()
+//            dataList.addAll(data)
+//            isDataInitialized = true
+//            calculatePercentages()
+//            show()
+//            legendView?.setLegendData(dataList)
+//        }
+//    }
 }

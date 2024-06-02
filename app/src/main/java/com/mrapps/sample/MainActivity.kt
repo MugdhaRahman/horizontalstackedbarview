@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mrapps.horizontalstackedbarview.R.color
 import com.mrapps.horizontalstackedbarview.R.style.DefaultLegendTextStyle
+import com.mrapps.horizontalstackedbarview.R.style.DefaultLegendValueTextStyle
 import com.mrapps.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,14 @@ class MainActivity : AppCompatActivity() {
         setupLegend()
         setupLegend2()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupBar()
+        setupBar2()
+        setupLegend()
+        setupLegend2()
     }
 
     private fun setupBar() {
@@ -84,8 +93,7 @@ class MainActivity : AppCompatActivity() {
         binding.legendView2.legendValueSpacing = 20.22550f
         binding.legendView2.legendItemSpaceVertical = 45.5f
         binding.legendView2.legendTextStyle = DefaultLegendTextStyle
-        binding.legendView2.legendValueTextStyle =
-            androidx.appcompat.R.style.Base_TextAppearance_AppCompat_Small
+        binding.legendView2.legendValueTextStyle = DefaultLegendValueTextStyle
         binding.legendView2.legendValue = true
         binding.legendView2.legendValueShow = true
     }
