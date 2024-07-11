@@ -208,6 +208,7 @@ class HorizontalStackedBarChartView @JvmOverloads constructor(
         currentPercentage = toPercentage(currentHeight)
     }
 
+
     private fun toPercentage(rectSize: Float): Float {
         return if (orientation == 0) {
             rectSize * 100 / fullWidth
